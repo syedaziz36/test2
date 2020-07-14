@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>iHireNow</title>
+    <link rel = "icon" href = "http://hostimagesforfree.pythonanywhere.com/media/uploadimages/images/ihire.png" type = "image/x-icon">
+
+      <style>
+        .tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+          .col-md-3
+          {
+          display: inline-block;
+          margin-left:-4px;
+          }
+          .carousel-indicators .active {
+          background-color: blue;
+            }
+          .col-md-3 img{
+          width:100%;
+          height:auto;
+          }
+          body .carousel-indicator li{
+          background-color: blue;
+          }
+          body .carousel-indicators{
+          bottom: 0;
+          }
+          body .carousel-control-prev-icon,
+          body .carousel-control-next-icon{
+          background-color: blue;
+          }
+           body .no-padding{
+           padding-left: 0,
+           padding-right: 0;
+           }
+  </style>
+  </head>
+  <body>
+  {% load static %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}">iHireNow</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="\hire/developers">Developers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="\hire/discussion">Join Discussion</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="container-fluid mr-5" style="float: left">
+<p style="float: right;"> lol </p>  
+
+</div>
+
+{% block content %}
+
+<!-- 
+<div class="container-fluid my-3">
+  <div class="row">
+
+  {% for i in obj1 %}
+
+  <div class="card col-lg-4 mt-2 mx-2" style="width: 18rem;">
+ -->
+<!--     <img src="/media/{{i.profile_pic}}"  style="border-radius: 50%;" class="card-img-top mt-1" alt="Responsive image"width="20%" height="80%" >
+ -->
+
+<!-- added here -->
+<!-- 
+
+<div class="card mb-1 mt-2" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-6 mt-4 mb-2 mx-1">
+      <img src="/media/{{i.profile_pic}}" style="border-radius: 50%" class="card-img" alt="...">
+    </div>
+    <div class="col-md-5 mb-1">
+      <div class="card-body">
+        <h4 class="card-title"><span><b>{{i.user}}</b></span></h4>
+        <p class="card-text mx-0">primary skill <span><b>{{i.skills}}</b></span>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="card-body">
+    
+      <h6 class="card-title">{{i.tag_line}}.</h6>
+      <p class="card-text">
+      <input style="border-radius: 12px; " type="text" value="http://127.0.0.1:8000/media/{{i.company_logo}}" id="{{i}}">
+      <button style="background-color: black; color: white; border-radius: 12px;border : none" onclick="myFunction( '{{i}}')">Copy link</button><br>
+      <a href="uploadimages/imageview/{{i.id}}"><button>view image</button></a>
+     
+
+     
+<table class="table">
+  <tbody>
+    <tr>
+      <td>stackoverflow points</td>
+      
+      <td>{{i.stackoverflow_points}}</td>
+            
+    </tr>
+    <tr>
+      <td>codechef points</td>
+
+      <td>{{i.codechef_points}}</td>
+      
+    </tr>
+    <tr>
+      <td>techgig points</td>
+      <td>{{i.techgig_points}}</td>
+      
+    </tr>
+
+
+    <tr>
+      <td>codeforces points</td>
+
+      <td>{{i.codeforces_points}}</td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+</p>
+
+
+
+
+
+
+
+
+      
+    </div>
+  </div>
+ -->
+
+<!-- 	<img src="media/{{i.image}}"  height = "200px" width = "200px">
+	
+  <br>
+  <h4 style="text-shadow: 2px,2px,5px,red">{{i.image_name}} by {{i.owner_name}}</h4>
+  
+  <input style="border-radius: 12px; " type="text" value="http://127.0.0.1:8000/media/{{i.image}}" id="{{i}}">
+  
+  <button style="background-color: black; color: white; border-radius: 12px;border : none" onclick="myFunction( '{{i}}')">Copy link</button><br>
+ -->
+<!-- {% endfor %}
+
+</div></div>
+ -->
+
+
+
+<div class="container-fluid mx-3 my-4">
+
+<h3 class="container-fluid" style="color: #787878"> iHire<span style="color: red">Now</span> </h3>
+<h3 class="container-fluid mx-5" style="color: #008B8B"> hire the talent that deservers your comapany
+</h3>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+  <!-- Optional JavaScript --><script type="text/javascript">
+    function myFunction(ids) {
+  /* Get the text field */
+  var copyText = document.getElementById(ids);
+
+  /* Select the text field */
+  copyText.select(); 
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}</script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
+</body>
+</html>

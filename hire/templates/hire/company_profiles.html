@@ -1,0 +1,53 @@
+
+{% extends 'hire/home.html' %}
+
+{% block content %}
+
+<div class="container-fluid col-lg-8 my-3">
+<h2 style="color: #66CDAA">some companies we </h2>
+<h2 style="color: #66CDAA; margin-left: 25%"> are tied up with</h2>
+</div>
+<div class="container-fluid my-3">
+  <div class="row">
+
+  {% for i in obj0 %}
+
+  <div class="card col-lg-3 my-2 mx-3" style="width: 18rem;">
+
+    <img src="/media/{{i.company_logo}}" class="card-img-top mt-1 " alt="Responsive image" >
+
+    <div class="card-body" style="border: 0px">
+    
+      <h4 class="card-title">{{i.company_name}}</h4>
+      <p class="card-text">
+      <!-- <input style="border-radius: 12px; " type="text" value="http://127.0.0.1:8000/media/{{i.company_logo}}" id="{{i}}">
+      <button style="background-color: black; color: white; border-radius: 12px;border : none" onclick="myFunction( '{{i}}')">Copy link</button><br>
+      <a href="uploadimages/imageview/{{i.id}}"><button>view image</button></a> -->
+
+      <a href={{i.company_link}} style="text-decoration: none"> company's website</a>
+
+      </p>
+      
+    </div>
+  </div>
+
+<!-- 	<img src="media/{{i.image}}"  height = "200px" width = "200px">
+	
+  <br>
+  <h4 style="text-shadow: 2px,2px,5px,red">{{i.image_name}} by {{i.owner_name}}</h4>
+  
+  <input style="border-radius: 12px; " type="text" value="http://127.0.0.1:8000/media/{{i.image}}" id="{{i}}">
+  
+  <button style="background-color: black; color: white; border-radius: 12px;border : none" onclick="myFunction( '{{i}}')">Copy link</button><br>
+ -->
+{% endfor %}
+
+</div></div>
+
+
+
+{% endblock %}
+
+
+
+

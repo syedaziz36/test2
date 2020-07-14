@@ -1,0 +1,108 @@
+{% extends 'hire/home.html' %}
+
+{% block content %}
+<p>some of the top Developers of the weak! </p>
+<div class="container-fluid my-3">
+  <div class="row">
+
+  {% for i in obj1 %}
+
+  <div class="card col-lg-4 mt-2 mx-2" style="width: 18rem;">
+
+
+<!-- added here -->
+
+
+<div class="card mb-1 mt-2" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-6 mt-4 mb-2 mx-1">
+      <img src="/media/{{i.profile_pic}}" style="border-radius: 50%" class="card-img" alt="...">
+    </div>
+    <div class="col-md-5 mb-1">
+      <div class="card-body">
+        <h4 class="card-title"><span><b>{{i.user}}</b></span></h4>
+        <p class="card-text mx-0">primary skill <span><b>{{i.skills}}</b></span>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="card-body">
+    
+      <h6 class="card-title">{{i.tag_line}}.</h6>
+      <p class="card-text">
+
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td>stackoverflow points</td>     
+      <td>{{i.stackoverflow_points}}</td>            
+    </tr>
+
+    <tr>
+      <td>codechef points</td>
+      <td>{{i.codechef_points}}</td>     
+    </tr>
+    
+    <tr>
+      <td>techgig points</td>
+      <td>{{i.techgig_points}}</td>
+    </tr>
+
+    <tr>
+      <td>codeforces points</td>
+      <td>{{i.codeforces_points}}</td>
+    </tr>
+
+
+  </tbody>
+</table>
+
+
+<!-- card adding here -->
+
+
+<div class="card col-lg-12" style="max-width: 800px;">
+  <div class="row no-gutters">
+    <div class="col-md-4 mt-3">
+      <h5> facebook likes</h4>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <a href="\hire/provileView/{{i.id}}"><button type="button" class="btn btn-info"> view profile</button></a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- card ends here -->
+
+
+
+
+
+
+
+
+
+</p>
+
+   
+      
+    </div>
+  </div>
+
+{% endfor %}
+
+</div></div>
+
+</h5></div>
+
+{% endblock %}

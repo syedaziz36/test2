@@ -1,0 +1,108 @@
+
+{% extends 'hire/home.html' %}
+
+{% block content %}
+<div class="container-fluid my-2 col-lg-7">
+	<table class='table'>
+		<tr><td>
+{% for i in pv_obj %}
+<div class="container my-2">
+<img src="/media/{{i.profile_pic}}" style="border-radius: 50%" width="250px" height="258px">
+</div>
+
+<!-- 
+toggle added here -->
+<!-- <p>
+  <a class="btn btn-primary" data-toggle="collapse" href="https://stackoverflow.com/users/1144035/gordon-linoff" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Link with href
+  </a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Button with data-target
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
+</div>
+ -->
+<!-- 
+toggle ends here -->
+</td>
+<td>
+<div class="container-fluid my-3">
+<table class="table-striped table-dark">
+  <tbody>
+    <tr>
+      <td>
+
+      <a href="{{i.stackoverflow_link}}"><button type="button" class="btn 						btn-info">stackoverflow profile</button></a>
+      </td>
+      
+    </tr>
+    <tr>
+      <td>
+      <a href="{{i.codechef_link}}"><button type="button" class="btn 						btn-info">codechef profile</button></a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <a href="{{i.techgig_link}}"><button type="button" class="btn 						btn-info">techgig profile</button></a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <a href="{{i.codeforces_link}}"><button type="button" class="btn 						btn-info">codeforces profile</button></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</td>
+</tr>
+ <tr>
+      <td>
+      <a href="\hire/contactUser/{{i.id}}"><button type="button" class="btn btn-success">contact profile</button></a>
+      </td>
+      <td>
+
+{% endfor %}
+
+      <button type="button" class="btn btn-success"  onclick="myFunction()">copy profile url</button>
+      </td>
+    </tr></table>
+</div>
+
+
+
+
+
+
+
+<!-- Optional JavaScript -->
+<!--   <script type="text/javascript">
+    function myFunction() {
+  /* Get the text field */
+  alert("yoyo")
+  var copyText = document.getElementById("hh");
+
+  /* Select the text field */
+  copyText.select(); 
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}</script>
+ -->    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<!-- 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+ -->
+
+{% endblock %}
